@@ -1,26 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams,
+} from "react-router-dom";
+import UserForm from "./ForUser/UserForm/UserForm";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
+import SubmitTrialForm from "./ForInstitution/SubmitTrialForm/SubmitTrialForm";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <div>
+        <ul>
+          {/* <li>
+            <Link to="userForm">UserForm</Link>
+          </li> */}
+          {/* <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/studies">Studies</Link>
+          </li> */}
+        </ul>
+
+        <Switch>
+          <Route path="/userForm">
+            <UserForm />
+          </Route>
+          {/* <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/studies">
+            <Studies />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route> */}
+        </Switch>
+      </div>
+      <Footer />
+      <br />
+      <br />
+      <br />
+      <SubmitTrialForm />
+    </Router>
   );
-}
+};
 
 export default App;
